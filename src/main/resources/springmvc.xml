@@ -1,0 +1,14 @@
+<beans>
+    <bean name="/query" class="top.okay3r.springmvc.handler.impl.UserServlet"></bean>
+
+
+    <!-- 处理器映射器的配置 -->
+    <bean class="top.okay3r.springmvc.mapping.impl.BeanNameUrlHandlerMapping"
+          init-method="init"></bean>
+    <bean class="top.okay3r.springmvc.mapping.impl.SimpleUrlHandlerMapping"
+          init-method="init"></bean>
+
+    <!-- 处理器适配器的配置 -->
+    <bean class="top.okay3r.springmvc.adapter.impl.HttpRequestHandlerAdapter"></bean>
+    <bean class="top.okay3r.springmvc.adapter.impl.SimpleControllerHandlerAdapter"></bean>
+</beans>

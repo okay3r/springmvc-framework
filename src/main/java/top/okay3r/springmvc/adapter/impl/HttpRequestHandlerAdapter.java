@@ -18,11 +18,13 @@ import java.io.IOException;
 public class HttpRequestHandlerAdapter implements HandlerAdapter {
     @Override
     public void handleRequest(Object handler, HttpServletRequest request, HttpServletResponse response) throws IOException {
+        //适配器模式调用对应处理器
         ((HttpRequestHandler) handler).handleRequest(request, response);
     }
 
     @Override
     public boolean supports(Object handler) {
+        //判断其类型，即判断该处理器是否属于本处理器的类型
         return handler instanceof HttpRequestHandler;
     }
 }

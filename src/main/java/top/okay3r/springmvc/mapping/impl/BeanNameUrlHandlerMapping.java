@@ -25,6 +25,7 @@ public class BeanNameUrlHandlerMapping implements HandlerMapping, BeanFactoryAwa
     private DefaultListableBeanFactory beanFactory;
 
 
+    //初始化，将以"/"开头的bean全部加入到处理器映射集合中
     public void init() {
         List<BeanDefinition> beanDefinitions = beanFactory.getBeanDefinitions();
         for (BeanDefinition beanDefinition : beanDefinitions) {
@@ -37,6 +38,7 @@ public class BeanNameUrlHandlerMapping implements HandlerMapping, BeanFactoryAwa
 
     @Override
     public Object getHandler(HttpServletRequest request) {
+        //根据请求url获取对应的处理器
         String requestURI = request.getRequestURI();
         return this.urlHandlers.get(requestURI);
     }
